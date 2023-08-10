@@ -1,0 +1,46 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'adminindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-striped">
+    <tr>
+      <th width="54"><div align="center">Name</div></th>
+      <th width="49"><div align="center">Place</div></th>
+      <th width="74"><div align="center">Address</div></th>
+      <th width="131"><div align="center">Phone number </div></th>
+      <th width="259"><div align="center">Email</div></th>
+      <td width="259"><p>&nbsp;</p>
+      <p>&nbsp;</p></td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td height="200">{{i.fname}}{{i.lname}}</td>
+      <td>{{i.place}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.phno}}</td>
+      <td>{{i.email}}</td>
+      <td>
+
+        {% if i.lid.type == 'pending' %}
+        <p><a href="{% url 'acceptparent' id=i.lid.id %}#about" class="btn btn-success">Accept</a></p>
+      <p><a href="{% url 'rejectparent' id=i.lid.id %}#about" class="btn btn-danger">Reject</a></p>
+      {% elif i.lid.type == 'reject'%} REJECTED
+        {% else %}ACCEPTED
+        {% endif %}
+
+      </td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

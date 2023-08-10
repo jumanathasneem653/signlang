@@ -1,0 +1,44 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="staffrating#about">
+  <table class="table table-striped">
+    <tr>
+      <th width="42">Staff</th>
+      <td width="48"><label>
+        <select name="select">
+          {% for i in val %}
+          <option value="{{i.id}}">{{i.fname}} {{i.lname}}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>User</th>
+      <th>Rating</th>
+      <th width="48">Review</th>
+      <th width="39">Date</th>
+    </tr>
+    {% for i in val1 %}
+    <tr>
+      <td>{{i.pid.fname}}{{i.pid.lname}}</td>
+      <td>{{i.rating}}</td>
+      <td>{{i.review}}</td>
+      <td>{{i.date}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

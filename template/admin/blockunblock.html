@@ -1,0 +1,65 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="blocking#about">
+  <table class="table table-striped">
+    <tr>
+      <th width="62">Type</th>
+      <td colspan="2"><label>
+        <select name="select">
+            <option {% if s == 'parent' %}selected{% endif %}>user</option>
+            <option {% if s == 'staff' %}selected{% endif %}>staff</option>
+        </select>
+      </label></td>
+      <td width="279"><label>
+        <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th width="56">Place</th>
+      <th width="82">Phone number </th>
+      <th>Email</th>
+       <td width="279">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+     <tr>
+      <td>{{i.fname}}{{i.lname}}</td>
+      <td>{{i.place}}</td>
+      <td>&nbsp;{{i.phno}}</td>
+      <td>&nbsp;{{i.email}}</td>
+
+         <td>
+         {% if s == 'parent' %}
+
+
+         {% if i.lid.type == 'parent' %}
+      <p><a href="{% url 'pblock'  id=i.lid.id %}" class="btn btn-danger">Block</a></p>
+             {% else %}
+      <p><a href="{% url 'punblock' id=i.lid.id %}" class="btn btn-success">Unblock</a></p>
+             {% endif %}
+         {% else %}
+                      {% if i.lid.type == 'staff' %}
+
+             <p><a href="{% url 'sblock'  id=i.lid.id %}" class="btn btn-danger">Block</a></p>
+             {% else %}
+      <p><a href="{% url 'sunblock' id=i.lid.id %}" class="btn btn-success">Unblock</a></p>
+             {% endif %}
+
+             {% endif %}
+         </td>
+
+     </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

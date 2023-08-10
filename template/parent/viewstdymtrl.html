@@ -1,0 +1,33 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'parentindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table  class="table table-striped">
+    <tr>
+      <th width="41">Staff</th>
+      <th width="54">Name</th>
+      <th width="33">File</th>
+      <th width="51">Date</th>
+      <th width="51">&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{i.sid.fname}}{{i.sid.lname}}</td>
+      <td>{{i.name}}</td>
+      <td><a href="../media/{{i.file}}" height="100" width="100"/><img src="../media/{{i.file}}" width="100" height="100" /> </a></td>
+      <td>{{i.date}}</td>
+      <td><a href="../media/{{i.file}}" height="100" width="100" download class="btn btn-success"> Download</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

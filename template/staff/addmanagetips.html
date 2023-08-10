@@ -1,0 +1,37 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'staffindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="adtip#about">
+  <table class="table table-striped">
+    <tr>
+      <th>Tips</th>
+      <th>Date</th>
+      <th>&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{i.tips}}</td>
+      <td>{{i.date}}</td>
+      <td><p><a href="{% url 'tpedit'  id=i.id %}#about" class="btn btn-success">Edit</a></p>
+      <p><a href="{% url 'deletetip' id=i.id %}#about" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a></p></td>
+    </tr>
+    {% endfor %}
+
+    <tr align="center">
+      <td height="39" colspan="3"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" class="btn btn-warning"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

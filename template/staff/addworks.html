@@ -1,0 +1,35 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+{% extends 'staffindex.html' %}
+{% block body %}
+<body>
+<form name="form1" method="post" action="addworkcode">
+  <table class="table table-striped">
+    <tr>
+      <th>Subject</th>
+      <td><label>
+        <input type="text" name="textfield" required>
+      </label></td>
+    </tr>
+    <tr>
+      <th>Work</th>
+      <td><label>
+        <textarea name="textarea" required></textarea>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add"  class="btn btn-warning">
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

@@ -1,0 +1,30 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+{% extends 'parentindex.html' %}
+{% block body %}
+<body>
+<form name="form1" method="post" action="">
+  <table class="table table-striped">
+    <tr>
+      <th>Staff</th>
+      <th>Subject</th>
+      <th>Works</th>
+      <th>Date</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{i.sid.fname}}{{i.sid.lname}}</td>
+      <td>{{i.subject}}</td>
+      <td>{{i.works}}</td>
+      <td>{{i.date}}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

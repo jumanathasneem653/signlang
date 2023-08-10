@@ -1,0 +1,35 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="addstaff#about">
+  <table class="table table-striped">
+     <tr>
+      <th>Name</th>
+      <th>Place</th>
+      <th>Phone number </th>
+      <th>Email</th>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{i.fname}}{{i.lname}}</td>
+      <td>{{i.place}}</td>
+      <td>{{i.phno}}</td>
+      <td>{{i.email}}</td>
+      <td><p><a href="{% url 'editstaff'  id=i.id %}#about" class="btn btn-success">Edit</a></p>
+      <p><a href="{% url 'deletestaff' id=i.lid.id %}#about" onclick="return confirm('Are you sure?')"  class="btn btn-danger">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+
+    <tr align="center">
+      <td colspan="5"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" class="btn btn-warning">
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
